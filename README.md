@@ -55,7 +55,7 @@ conda activate grafana-env
 pip install -U -r requirements.txt
 ```
 
-3. Start Grafana Server 
+3. Start the Grafana server 
 
 Install [Grafana](https://grafana.com/docs/grafana/latest/setup-grafana/installation/)
 
@@ -66,16 +66,15 @@ sudo systemctl enable grafana-server
 
 Open browser to [http://localhost:3000/](http://localhost:3000/)
 
-5. Start Prometheus instance
+5. Start the Prometheus instance
 
-Download [Prometheus](https://prometheus.io/download/)
-
-Unpack the downloaded tarball
+- Download [Prometheus](https://prometheus.io/download/)
+- Unpack the downloaded tarball
 ```
 tar xvfz prometheus-*.tar.gz
 ```
 
-Start prometheus instance
+- Start the Prometheus instance
 ```
 cd prometheus-*
 ./prometheus --config.file=./prometheus.yml
@@ -83,7 +82,7 @@ cd prometheus-*
 
 Open browser to [http://localhost:9090](http://localhost:9090)
 
-6. Train ML model
+6. Train the ML model
 
 ```
 python src/train.py
@@ -95,28 +94,26 @@ python src/train.py
 python src/app.py
 ```
 
-Open browser to [http://localhost:5000/metrics](http://localhost:5000/metrics)
-
-This should show a text file with the Prometheus scrape details.
+Open browser to [http://localhost:5000/metrics](http://localhost:5000/metrics). This should show a text file with the Prometheus scrape details.
 
 8. Close the app
 
-Stop Flask app with CTRL + C
-Stop the Prometheus instance with CTRL + C
-Stop the Grafana server 
+- Stop Flask app with CTRL + C
+- Stop the Prometheus instance with CTRL + C
+- Stop the Grafana server :
 ```
 sudo systemctl stop grafana-server
 ```
 
-## Grafana Dashboard
+## Grafana Dashboard Setup
 
-1. Head to the Grafana UI page and log in (user: admin, password : admin)
+1. Head to the Grafana UI page and log in (by default, username: admin, password : admin)
 
 2. Connect to Prometheus
 
-On the left side, go to Connections > Data Sources > Prometheus 
-Enter Prometheus Server URL in the connection field : http://prometheus:9090
-Click Save and Test
+- On the left side, go to Connections > Data Sources > Prometheus 
+- Enter the Prometheus Server URL in the connection field : http://prometheus:9090
+- Click Save and Test
 
 3. Create a Grafana Dashboard and visualisations
 
@@ -128,20 +125,21 @@ Click Save and Test
 - select "show threshold" As lines (dashed)
  
  
-Do the same for the concept_drift:
+4. Do the same for the concept_drift metric
 - Click on "Add visualisation"
 - Select Metric "concept_drift"
 - Click "run queries"
 - On the right hand panel, scroll down to Threshold and add a percentage threshold at 80%.
 - Select "show threshold" As lines (dashed)
- 
 - Name your dashboard "ML-model-monitoring" 
 - Click on "save dashboard"
  
 
-## Setup alerts
+## Discord Alerts Setup
 
-Let’s set up a Discord alert that will fire when the drift scores cross a custom threshold.
+Set up a Discord alert that triggers notifications when the drift metrics exceed a threshold value.
+
+![discord-screenshot](img/discord_screenshot.png)
  
 1. Create a new Discord server
 - Log in to [Discord](https://discord.com/)

@@ -1,4 +1,4 @@
-# src/monitoring/data_drift.py
+# src/data_drift.py
 import numpy as np
 from scipy.stats import ks_2samp
 

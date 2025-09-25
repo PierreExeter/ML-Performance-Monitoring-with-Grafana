@@ -18,7 +18,7 @@ app = Flask(__name__)
 
 # Load the model pipeline
 try:
-    model_pipeline = joblib.load("../model_pipeline.joblib")
+    model_pipeline = joblib.load("model/model_pipeline.joblib")
     print("Model pipeline loaded successfully")
 except Exception as e:
     print(f"Error loading model pipeline: {e}")

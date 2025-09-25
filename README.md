@@ -4,10 +4,10 @@
 
 This repository contains a Dockerized service for serving a regression model and monitoring its performance in production. The core components include:
 - A **Flask REST API** that serves model predictions through endpoints.
-- A **monitoring system** that tracks and logs [data drift](https://www.datacamp.com/tutorial/understanding-data-drift-model-drift) and [concept drift](https://en.wikipedia.org/wiki/Concept_drift) metrics.
+- A **monitoring system** that generates new sample data and logs [data drift](https://www.datacamp.com/tutorial/understanding-data-drift-model-drift) and [concept drift](https://en.wikipedia.org/wiki/Concept_drift) metrics.
 - A **Grafana** dashboard for visualizing these metrics in real-time.
 - An **alert pipeline** that triggers notifications to a Discord channel whenever monitored metrics exceed a threshold value.
-- The application is containerized with **Docker** and **Docker Compose** for easy and consistent deployment.
+- A containerized application (**Docker** and **Docker Compose**) for consistent deployment.
 
 
 ## Docker Install (recommended)

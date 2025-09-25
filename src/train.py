@@ -52,7 +52,7 @@ def train_model():
     print(f"Model MSE: {mse}")
 
     # Save the entire pipeline
-    joblib.dump(model_pipeline, "../model_pipeline.joblib")
+    joblib.dump(model_pipeline, "model/model_pipeline.joblib")
 
     print("Model pipeline saved successfully.")
 

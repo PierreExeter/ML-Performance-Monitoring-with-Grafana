@@ -8,11 +8,9 @@ from prometheus_client import start_http_server, Gauge
 from prometheus_client import make_wsgi_app
 from flask import Flask, request, jsonify
 from apscheduler.schedulers.background import BackgroundScheduler
-
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
+from metrics_drift import detect_data_drift, detect_concept_drift
 
-from data_drift import detect_data_drift
-from concept_drift import detect_concept_drift
 
 app = Flask(__name__)
 
